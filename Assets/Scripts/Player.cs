@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 	public float StartSpeed;
 
 	private float _speed;
-	
+
 	private void Awake()
 	{
 		_transform = transform;
@@ -18,7 +18,8 @@ public class Player : MonoBehaviour
 
 	private void Update()
 	{
-		var dir = new Vector3(Input.GetAxis("Horizontal") * _speed * Time.deltaTime, Input.GetAxis("Vertical") * _speed * Time.deltaTime, 0);
+		var dir = new Vector3(Input.GetAxis("Horizontal") * _speed * Time.deltaTime,
+			Input.GetAxis("Vertical") * _speed * Time.deltaTime, 0);
 		_transform.Translate(dir);
 	}
 }
