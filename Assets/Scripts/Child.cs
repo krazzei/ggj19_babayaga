@@ -56,6 +56,8 @@ public class Child : MonoBehaviour
 			dir.y = 0;
 		}
 		
+		Flip(dir.x);
+		
 		_transform.Translate(dir);
 	}
 
@@ -63,6 +65,23 @@ public class Child : MonoBehaviour
 	{
 		var dir = (_playerTrans.position - _transform.position).normalized;
 		dir.z = 0;
+		Flip(dir.x);
 		_transform.Translate(dir * RunSpeed * Time.deltaTime);
+	}
+
+	private void Flip(float x)
+	{
+		if (x < 0)
+		{
+			var scale = _transform.localScale;
+			scale.x = -1;
+			_transform.localScale = scale;
+		}
+		else
+		{
+			var scale = _transform.localScale;
+			scale.x = 1;
+			_transform.localScale = scale;
+		}
 	}
 }
