@@ -25,7 +25,6 @@ public class HUD : MonoBehaviour
 	{
 		score.text = $"Score: {_player.Score}";
 		weight.text = $"Weight: {_player.Weight}";
-		Debug.Log(_player.SprintCooldownPercent);
 		sprintPercent.value = _player.SprintCooldownPercent;
 	}
 }

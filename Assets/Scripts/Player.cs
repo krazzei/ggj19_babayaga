@@ -111,7 +111,13 @@ public class Player : MonoBehaviour
 
 		if (other.gameObject.layer == 10)
 		{
-			// TODO: Guard stuff.
+			var guard = other.gameObject.GetComponent<Child>();
+			if (guard != null && guard.isActiveAndEnabled)
+			{
+				Weight -= guard.Weight;
+				Score -= guard.Points;
+				guard.enabled = false;
+			}
 		}
 	}
 }
