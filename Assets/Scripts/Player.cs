@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
 	private float _lastSprintTime;
 	private float _sprintStartTime;
 	private Vector3 _sprintDir;
+	private Camera _camera;
+	private float vertExtent;
+	private float horzExtent;
 
 	/// <summary>
 	/// For the Hud
@@ -31,36 +34,54 @@ public class Player : MonoBehaviour
 		_transform = transform;
 		_speed = startSpeed;
 		_lastSprintTime = -sprintCooldown;
+		_camera = Camera.main;
+		vertExtent = _camera.orthographicSize;
+		horzExtent = vertExtent * (float)Screen.width / (float)Screen.height;
+		Debug.Log(horzExtent);
 	}
 
 	private void Update()
 	{
-		// too lazy to clean this up, I feel like I could have one dir and Translate call...
+		var dir = new Vector3(Input.GetAxis("Horizontal") * _speed * Time.deltaTime,
+			Input.GetAxis("Vertical") * _speed * Time.deltaTime, 0);
 		if (_didSprint)
 		{
 			if (_sprintStartTime + sprintDuration > Time.time)
 			{
-				var sprintDir = new Vector3(Input.GetAxis("Horizontal") * (_speed + sprintIncrease) * Time.deltaTime,
+				 dir = new Vector3(Input.GetAxis("Horizontal") * (_speed + sprintIncrease) * Time.deltaTime,
 					Input.GetAxis("Vertical") * (_speed + sprintIncrease) * Time.deltaTime, 0);
-				_transform.Translate(sprintDir);
 			}
 			else
 			{
 				_didSprint = false;
 				_lastSprintTime = Time.time;
 			}
-			
-			return;
 		}
 		
-		if (Input.GetButtonDown("Sprint") && _lastSprintTime + sprintCooldown < Time.time)
+		if (!_didSprint && Input.GetButtonDown("Sprint") && _lastSprintTime + sprintCooldown < Time.time)
 		{
 			_didSprint = true;
 			_sprintStartTime = Time.time;
 		}
+
+		if (dir.y + _transform.position.y > _camera.transform.position.y + vertExtent)
+		{
+			dir.y = 0;
+		}
+		else if (dir.y + _transform.position.y < _camera.transform.position.y - vertExtent)
+		{
+			dir.y = 0;
+		}
+
+		if (dir.x + _transform.position.x > _camera.transform.position.x + horzExtent)
+		{
+			dir.x = 0;
+		}
+		else if (dir.x + _transform.position.x < _camera.transform.position.x - horzExtent)
+		{
+			dir.x = 0;
+		}
 		
-		var dir = new Vector3(Input.GetAxis("Horizontal") * _speed * Time.deltaTime,
-			Input.GetAxis("Vertical") * _speed * Time.deltaTime, 0);
 		_transform.Translate(dir);
 	}
 }
