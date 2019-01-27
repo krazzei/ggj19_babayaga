@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -524,7 +525,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &597385937
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0984b573e0d3e4b28bcae09cc80899c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EndGameDistance: 40
+  PlayerMove: {fileID: 899280728}
+  EndGamePopup: {fileID: 6135775590322924001, guid: 9a7da222e6c3b4f318a30f32e6d10e07,
+    type: 3}
+--- !u!1 &899280727
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1281,13 +1298,13 @@ MonoBehaviour:
   PovertyChild:
     thingToSpawn: {fileID: 6414975653266837921, guid: 844204d1976ac41b388997bdbea39e83,
       type: 3}
-    amountToSpawn: {x: 12, y: 16}
+    amountToSpawn: {x: 16, y: 20}
     xStartRange: {x: 1, y: 2}
     xAdditionRange: {x: 2, y: 4}
     yVariance: {x: -4, y: 4}
   RichChild:
     thingToSpawn: {fileID: 1063664336, guid: 29a8e3b3596db4f8dac646750cb8bc03, type: 3}
-    amountToSpawn: {x: 10, y: 12}
+    amountToSpawn: {x: 14, y: 16}
     xStartRange: {x: 1.5, y: 2.5}
     xAdditionRange: {x: 1, y: 5}
     yVariance: {x: -4, y: 4}
@@ -1799,6 +1816,30 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069682624, guid: f4664ea6c0e5447efab754abefcd6efb, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069682624, guid: f4664ea6c0e5447efab754abefcd6efb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069682624, guid: f4664ea6c0e5447efab754abefcd6efb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069682624, guid: f4664ea6c0e5447efab754abefcd6efb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069682624, guid: f4664ea6c0e5447efab754abefcd6efb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 79.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069682624, guid: f4664ea6c0e5447efab754abefcd6efb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1779619972, guid: f4664ea6c0e5447efab754abefcd6efb, type: 3}
       propertyPath: m_AnchorMax.x
