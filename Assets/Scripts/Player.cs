@@ -21,10 +21,13 @@ public class Player : MonoBehaviour
 	/// For the Hud
 	/// </summary>
 	/// <returns></returns>
-	public float SprintCooldownPercent => Mathf.Max(1, (Time.time - _lastSprintTime) / sprintCooldown);
+	public float SprintCooldownPercent => Mathf.Min(1, (Time.time - _lastSprintTime) / sprintCooldown);
 
 	[HideInInspector]
 	public int Score;
+
+	[HideInInspector] 
+	public int Weight;
 	
 	private float _speed;
 	private bool _didSprint;
@@ -34,9 +37,8 @@ public class Player : MonoBehaviour
 	private Camera _camera;
 	private float _vertExtent;
 	private float _horzExtent;
-	private int _weight = 0;
 
-	private float WeightSpeedReduction => _weight / weightFactor;
+	private float WeightSpeedReduction => Weight / weightFactor;
 
 	private float GetCalculatedFrameSpeed =>
 		_didSprint
@@ -85,7 +87,8 @@ public class Player : MonoBehaviour
 		}
 		else if (dir.x + _transform.position.x < _camera.transform.position.x - _horzExtent)
 		{
-			dir.x = 0;
+			dir.x = (_camera.transform.position.x - _horzExtent) - (dir.x + _transform.position.x);
+			dir.x += 1f * Time.deltaTime;
 		}
 		
 		_transform.Translate(dir);
@@ -100,7 +103,7 @@ public class Player : MonoBehaviour
 			var child = other.gameObject.GetComponent<Child>();
 			if (child != null)
 			{
-				_weight += child.Weight;
+				Weight += child.Weight;
 				Score += child.Points;
 				Destroy(child.gameObject);
 			}
