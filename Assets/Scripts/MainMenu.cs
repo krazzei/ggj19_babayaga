@@ -7,33 +7,38 @@ using UI = UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject ButtonPanel;
+	public GameObject ButtonPanel;
 
-    public GameObject CreditsPanel;
+	public GameObject CreditsPanel;
 
-    public EventSystem _eventSystem;
+	public EventSystem _eventSystem;
 
-    public GameObject CreditsBackButton;
-    public GameObject MainMenuPlayButton;
+	public GameObject CreditsBackButton;
+	public GameObject MainMenuPlayButton;
 
-    public void Play()
-    {
-        SceneManager.LoadScene("SampleScene");
-    }
-    
-    public void ShowButtons()
-    {
-        ButtonPanel.SetActive(true);
-        CreditsPanel.SetActive(false);
-        
-        _eventSystem.SetSelectedGameObject(MainMenuPlayButton);
-    }
+	public void Play()
+	{
+		SceneManager.LoadScene("SampleScene");
+	}
 
-    public void ShowCredits()
-    {
-        ButtonPanel.SetActive(false);
-        CreditsPanel.SetActive(true);
+	public void ShowButtons()
+	{
+		ButtonPanel.SetActive(true);
+		CreditsPanel.SetActive(false);
 
-        _eventSystem.SetSelectedGameObject(CreditsBackButton);
-    }
+		_eventSystem.SetSelectedGameObject(MainMenuPlayButton);
+	}
+
+	public void ShowCredits()
+	{
+		ButtonPanel.SetActive(false);
+		CreditsPanel.SetActive(true);
+
+		_eventSystem.SetSelectedGameObject(CreditsBackButton);
+	}
+
+	public void Quit()
+	{
+		Application.Quit();
+	}
 }

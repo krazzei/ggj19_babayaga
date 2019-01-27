@@ -11,10 +11,19 @@ public class IntroLooper : MonoBehaviour
 
 	private AudioSource _source;
 
+	private static IntroLooper _instance;
+
 	private bool _isLooping;
 
 	private void Awake()
 	{
+		if (_instance != null)
+		{
+			Destroy(gameObject);
+			return;
+		}
+
+		_instance = this;
 		_source = GetComponent<AudioSource>();
 		DontDestroyOnLoad(gameObject);
 	}
