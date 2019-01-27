@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Child : MonoBehaviour
 {
-	public float Points;
-	public float Weight;
+	public int Points;
+	public int Weight;
 	public bool ShouldRun;
 	public float RunSpeed;
 	public float AlertRange = 1.75f;

@@ -163,8 +163,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1772737881
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.06051887, g: 0.764151, b: 0, a: 1}
@@ -185,7 +185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486599707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.6, y: 0, z: 1}
+  m_LocalPosition: {x: 16.6, y: 0, z: 0}
   m_LocalScale: {x: 500, y: 89.03, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -284,8 +284,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 899280730}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -300,7 +299,9 @@ GameObject:
   - component: {fileID: 899280730}
   - component: {fileID: 899280729}
   - component: {fileID: 899280728}
-  m_Layer: 0
+  - component: {fileID: 899280731}
+  - component: {fileID: 899280732}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,6 +324,8 @@ MonoBehaviour:
   sprintIncrease: 4
   sprintCooldown: 1
   sprintDuration: 0.33
+  weightFactor: 26
+  Score: 0
 --- !u!212 &899280729
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -357,8 +360,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1527027597
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -379,12 +382,59 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899280727}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.99, y: 0, z: 10}
+  m_LocalPosition: {x: -3.99, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
-  m_Father: {fileID: 519420032}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &899280731
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899280727}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.14, y: 0.14}
+  m_EdgeRadius: 0
+--- !u!50 &899280732
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899280727}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1727161611
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,19 +467,19 @@ MonoBehaviour:
   PovertyChild:
     thingToSpawn: {fileID: 6414975653266837921, guid: 844204d1976ac41b388997bdbea39e83,
       type: 3}
-    amountToSpawn: {x: 8, y: 10}
+    amountToSpawn: {x: 12, y: 16}
     xStartRange: {x: 1, y: 2}
     xAdditionRange: {x: 2, y: 4}
     yVariance: {x: -4, y: 4}
   RichChild:
     thingToSpawn: {fileID: 1063664336, guid: 29a8e3b3596db4f8dac646750cb8bc03, type: 3}
-    amountToSpawn: {x: 8, y: 10}
+    amountToSpawn: {x: 10, y: 12}
     xStartRange: {x: 1.5, y: 2.5}
     xAdditionRange: {x: 1, y: 5}
     yVariance: {x: -4, y: 4}
   GoldenChild:
     thingToSpawn: {fileID: 1063664336, guid: 400d6aee3f0bd48fbbfcd05ce13ba87c, type: 3}
-    amountToSpawn: {x: 1, y: 1}
+    amountToSpawn: {x: 0, y: 1}
     xStartRange: {x: 10, y: 40}
     xAdditionRange: {x: 25, y: 30}
     yVariance: {x: -4, y: 4}

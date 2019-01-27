@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6414975653266837922}
   - component: {fileID: 6414975653266837923}
   - component: {fileID: 6414975653266837920}
-  m_Layer: 0
+  - component: {fileID: 8105653748549097964}
+  m_Layer: 9
   m_Name: PovertyChild
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,8 +67,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1527027597
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.3490566, g: 0.17811577, b: 0.14983091, a: 1}
@@ -92,8 +93,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3a8c548c7d74389ad4b55982f4781c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Points: 1
+  Points: 2
   Weight: 1
   ShouldRun: 0
   RunSpeed: 1
   AlertRange: 2
+--- !u!58 &8105653748549097964
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414975653266837921}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.09
